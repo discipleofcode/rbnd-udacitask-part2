@@ -1,13 +1,26 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+Faker, I made two lists - divination & meetings with generated random data in them
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) New item type - meeting
+  b) Generating random meetings - generate_meetings function
+  c) not reaaally a feature but there is a divination list
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+   about 6 hours, reading and understanding specs took most of my time
 2. What was the most rewarding challenge you conquered?
+   Well I'm not sure, Im glad all functions in app.rb passed
 3. What two additional features did you build? Why?
+   once more:
+  a) New item type - meeting
+  b) Generating random meetings - generate_meetings function
+  c) not reaaally a feature but there is a divination list
+
+  why? I wanted to try faker gem, so I've added meetings to randomize input data (name & date)
+  divination list came later, wanted to check when ill meet my end :D - 2089. Still have much time to learn!
 4. Where do you still have room to grow?
+  It would be nice to randomize input data for all item types but I couldnt find useful data for events and todos
+  I think it's quite common use, maybe I should learn how to extend gems :o ?
