@@ -1,5 +1,6 @@
 require 'chronic'
 require 'colorize'
+require 'faker'
 # Find a third gem of your choice and add it to your project
 require 'date'
 require_relative "lib/listable"
@@ -8,6 +9,17 @@ require_relative "lib/udacilist"
 require_relative "lib/todo"
 require_relative "lib/event"
 require_relative "lib/link"
+require_relative "lib/meeting"
+
+def random_meeting_date
+  Faker::Time.between(DateTime.now, DateTime.now + 60).strftime("%Y-%m-%d")
+end
+
+def generate_meetings(list, number)
+  for i in 0..(number-1)
+    list.add("meeting", Faker::Name.name, date: random_meeting_date)
+  end
+end
 
 list = UdaciList.new(title: "Julia's Stuff")
 list.add("todo", "Buy more cat food", due: "2016-02-03", priority: "low")
@@ -45,3 +57,23 @@ new_list.all
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 new_list.filter("event")
+
+# MEETING WITH YOUR DESINY - DONT TAKE IT TO YOUR HEART
+# -----------------------------------------------------
+love_date = Faker::Time.between(DateTime.now, DateTime.now + 6000)
+boss_date = Faker::Time.between(love_date, DateTime.now + 6000)
+end_date = Faker::Time.between(boss_date, DateTime.now + 36000)
+divination_list = UdaciList.new(title: "Meet your destiny list")
+divination_list.add("meeting", "Meet my love!", date: love_date.strftime("%Y-%m-%d"))
+divination_list.add("meeting", "Meet my new boss!", date: boss_date.strftime("%Y-%m-%d"))
+divination_list.add("meeting", "Meet my end!", date: end_date.strftime("%Y-%m-%d")) #better not
+
+divination_list.filter("meeting")
+
+# TRUE MEETINGS LIST
+# ------------------
+meetings_list = UdaciList.new(title: "Meetings list")
+generate_meetings(meetings_list, 9);
+
+
+meetings_list.filter("meeting")

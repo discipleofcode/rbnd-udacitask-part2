@@ -1,6 +1,6 @@
 class UdaciList
   attr_reader :title, :items
-  @@allowed_item_types = ["todo", "event", "link"]
+  @@allowed_item_types = ["todo", "event", "link", "meeting"]
 
   def initialize(options={})
     @title = options[:title] ? options[:title] : "Untitled List"
@@ -17,6 +17,7 @@ class UdaciList
     @items.push TodoItem.new(description, options) if type == "todo"
     @items.push EventItem.new(description, options) if type == "event"
     @items.push LinkItem.new(description, options) if type == "link"
+    @items.push MeetingItem.new(description, options) if type == "meeting"
     
   end
   def delete(index)
