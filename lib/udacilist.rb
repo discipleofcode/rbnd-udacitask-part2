@@ -33,4 +33,15 @@ class UdaciList
       puts "#{position + 1}) #{item.details}"
     end
   end
+  def filter(item_type)
+    puts "-" * @title.length
+    puts @title
+    puts "-" * @title.length
+    # not sure if we should still use position here, depends what we
+    # want to do, we could always just iterate over whole expression
+    # to get numbers starting from 1
+    @items.each_with_index do |item, position|
+      puts "#{position + 1}) #{item.details}" if item.type == item_type
+    end
+  end
 end
