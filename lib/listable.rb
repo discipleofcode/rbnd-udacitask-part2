@@ -14,6 +14,8 @@ module Listable
     end
   end
   def format_priority(priority)
+    # this is not displaying on my Windows machine ;(
+    # getting '?' so i've added some text equivalents...
     value = " ⇧ (^)" if priority == "high"
     value = " ⇨ (=)" if priority == "medium"
     value = " ⇩ (v)" if priority == "low"
