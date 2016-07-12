@@ -3,7 +3,7 @@ class UdaciList
   @@allowed_item_types = ["todo", "event", "link"]
 
   def initialize(options={})
-    @title = options[:title]
+    @title = options[:title] ? options[:title] : "Untitled List"
     @items = []
   end
   def validate(type)

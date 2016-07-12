@@ -5,10 +5,11 @@ module Listable
   def format_date(options={})
     # not sure if this is what you wanted :o
     if (options.key?(:due))
-      options[:due] ? options[:due].strftime("%D") : "No due date"
+      options[:due] ? options[:due].strftime("%Y-%m-%d") : "No due date"
     else
-      dates =  options[:start_date].strftime("%D") if options[:start_date]
-      dates << " -- " + options[:end_date].strftime("%D") if options[:end_date]
+      dates =  options[:start_date].strftime("%Y-%m-%d") if options[:start_date]
+      #p end_date
+      dates << " -- " + options[:end_date].strftime("%Y-%m-%d") if options[:end_date]
       dates = "N/A" if !dates
       return dates
     end
